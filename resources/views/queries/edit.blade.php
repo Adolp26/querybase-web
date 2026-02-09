@@ -138,10 +138,10 @@
     <script>
         function queryForm() {
             return {
-                parameters: @json($query->parameters->map(fn($p) => [
+                parameters: @js($query->parameters->map(fn($p) => [
                     'name' => $p->name,
                     'param_type' => $p->param_type,
-                    'is_required' => $p->is_required,
+                    'is_required' => (bool) $p->is_required,
                     'default_value' => $p->default_value ?? '',
                     'description' => $p->description ?? ''
                 ])),

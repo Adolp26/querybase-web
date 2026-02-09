@@ -14,7 +14,7 @@
                 <x-card title="Informacoes Basicas">
                     <div class="space-y-4">
                         <x-form.input name="name" label="Nome do Datasource" required
-                                      placeholder="Ex: Oracle Principal (MV)" />
+                                      placeholder="Ex: Oracle Principal" />
 
                         <x-form.input name="slug" label="Slug" placeholder="Ex: oracle-principal"
                                       help="Deixe vazio para gerar automaticamente" />
