@@ -49,25 +49,27 @@ class Datasource extends Model
 
     public function setPasswordAttribute(?string $value): void
     {
-        if ($value !== null && $value !== '') {
-            $encryption = app(EncryptionService::class);
-            $this->attributes['password'] = $encryption->encrypt($value);
-        }
+        // if ($value !== null && $value !== '') {
+        //     $encryption = app(EncryptionService::class);
+        //     $this->attributes['password'] = $encryption->encrypt($value);
+        // }
+
+        $this->attributes['password'] = $value;
     }
 
-    public function getPasswordAttribute(?string $value): ?string
-    {
-        if ($value === null || $value === '') {
-            return null;
-        }
+    // public function getPasswordAttribute(?string $value): ?string
+    // {
+    //     if ($value === null || $value === '') {
+    //         return null;
+    //     }
 
-        try {
-            $encryption = app(EncryptionService::class);
-            return $encryption->decrypt($value);
-        } catch (\Exception $e) {
-            return $value;
-        }
-    }
+    //     try {
+    //         $encryption = app(EncryptionService::class);
+    //         return $encryption->decrypt($value);
+    //     } catch (\Exception $e) {
+    //         return $value;
+    //     }
+    // }
 
     public function queries(): HasMany
     {
@@ -81,7 +83,7 @@ class Datasource extends Model
 
     public function getDriverLabelAttribute(): string
     {
-        return match($this->driver) {
+        return match ($this->driver) {
             'oracle' => 'Oracle',
             'postgres' => 'PostgreSQL',
             'mysql' => 'MySQL',
@@ -131,7 +133,6 @@ class Datasource extends Model
                 'message' => $errorData['error'] ?? $errorData['message'] ?? 'Erro desconhecido',
                 'duration_ms' => $durationMs,
             ];
-
         } catch (\Illuminate\Http\Client\ConnectionException $e) {
             return [
                 'success' => false,
