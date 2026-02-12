@@ -6,8 +6,8 @@ Painel administrativo em Laravel para gerenciar queries SQL do sistema QueryBase
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   Power BI /    │────▶│   API Golang    │────▶│     Oracle      │
-│    Analistas    │     │   (porta 8080)  │     │   (Produção)    │
+│    sistemas     │────▶│   API Golang    │────▶│     Oracle      │
+│    clientes     │     │   (porta 8080)  │     │   (Produção)    │
 └─────────────────┘     └────────┬────────┘     └─────────────────┘
                                  │
                     ┌────────────┼────────────┐
